@@ -1,7 +1,8 @@
 import React from "react";
 import Cockpit from "./components/Cockpit";
 import store from "./redux/store";
-import { Provider } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
+import { addSecond } from "./redux/reducers/cockpitSlice";
 
 function App() {
   return (

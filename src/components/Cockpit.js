@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addSecond, selectTime } from "../redux/reducers/cockpitSlice";
+import {
+  addSecond,
+  selectTime,
+  timerStart,
+} from "../redux/reducers/cockpitSlice";
+import Time from "./Time";
 
 function Cockpit() {
   const time = useSelector(selectTime);
   const dispatch = useDispatch();
-  const [time2, setTime] = useState(0);
 
-  // setInterval(() => {
-  //   dispatch(addSecond());
-  // }, [10000]);
-
-  setInterval(() => {
-    setTime(time2 + 1);
-  }, [1000]);
-
-  console.log(time2);
-  return <h1>time yo: adssd</h1>;
+  return (
+    <h1>
+      time yo: <Time />
+    </h1>
+  );
 }
 
 export default Cockpit;

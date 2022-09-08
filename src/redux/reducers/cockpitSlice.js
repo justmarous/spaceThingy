@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   time: 0,
+  intervalID: null,
 };
 
 export const drawerSlice = createSlice({
@@ -9,12 +10,20 @@ export const drawerSlice = createSlice({
   initialState,
   reducers: {
     addSecond: (state, action) => {
-      return {
-        time: state.time + 1,
-      };
+      return { ...state, time: state.time + 1 };
+    },
+    setInterval: (state, action) => {
+      return { ...state, intervalID: action.payload };
     },
   },
 });
+
+export const timerStart = async (dispatch) => {
+  setInterval(() => {
+    // dispatch(addSecond());
+    console.log("plus one");
+  }, [1000]);
+};
 
 export const selectTime = (state) => state.cockpit.time;
 
